@@ -1,0 +1,1311 @@
+CONTROL STATEMENTS PROGRAMS
+===============================
+Q)Write a java program to find out sum of digits of a given number?
+
+input:
+	123
+
+Output:
+	6
+
+ex:
+---
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the Number :");
+		int n=sc.nextInt(); //123
+
+		int rem,sum=0;
+
+		while(n>0)
+		{
+			rem=n%10;
+			sum=sum+rem;
+			n=n/10;
+		}
+		System.out.println("sum of digits of a given number is ="+sum);
+
+	}
+}
+
+Q)Write a java program to find out reverse of a given number?
+
+input:
+	123
+
+output:
+	321
+
+ex:
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the Number :");
+		int n=sc.nextInt(); //123
+
+		int rem,rev=0;
+
+		while(n>0)
+		{
+			rem=n%10;
+			rev=rev*10+rem;
+			n=n/10;
+		}
+		System.out.println("Reverse of a given number is ="+rev);
+
+	}
+}
+
+Q)Write a java program to find out given number is palindrome or not?
+
+input:
+	121
+
+output:
+	It is a palindrome number 
+
+ex:
+----
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the Number :");
+		int n=sc.nextInt(); //121
+
+		int temp=n;
+
+		int rem,rev=0;
+
+		while(n>0)
+		{
+			rem=n%10;
+			rev=rev*10+rem;
+			n=n/10;
+		}
+		if(rev==temp)
+			System.out.println("It is a palindrome number ");
+		else
+			System.out.println("It is not a palindrome number ");
+		
+
+	}
+}
+
+Q)Write a java program to find out given number is armstrong or not?
+
+Input:
+	153 (1*1*1 + 5*5*5 + 3*3*3) ->(1+125+27) --> (153)
+
+Output:
+	It is armstrong number 
+
+ex:
+----
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the Number :");
+		int n=sc.nextInt(); //153
+
+		int temp=n;
+
+		int rem,sum=0;
+
+		while(n>0)
+		{
+			rem=n%10;
+			sum=sum+rem*rem*rem;
+			n=n/10;
+		}
+		if(sum==temp)
+			System.out.println("It is a armstrong number ");
+		else
+			System.out.println("It is not a armstrong number ");
+		
+
+	}
+}
+
+Recursion programs
+=====================
+Q)Write a java program to find out factorial of a given number using recursion?
+
+input:
+	n=5 (5*4*3*2*1)
+
+output:
+	120 
+
+ex:
+----
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Enter the Number :");
+		int n=sc.nextInt();
+
+		//caller method
+		System.out.println("Factorial of a given number is ="+factorial(n));
+
+	}
+	
+	//callie method
+	public static int factorial(int n)
+	{
+		if(n<0)
+			return -1;
+		if(n==0)
+			return 1;
+
+		return n*factorial(n-1);
+	}
+}
+
+Q)Write a java program to find out Nth- element of fibonacci series of a given number?
+
+Fibonacci series : 0 1 1 2 3 5
+
+input:
+
+	n= 4
+
+output:
+	Nth-Element is : 2
+
+ex:
+----
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the number :");
+		int n=sc.nextInt();
+
+		//caller method
+		System.out.println("N-element of fibonacci series is ="+fibonacci(n));
+
+	}
+	//callie method
+	public static  int fibonacci(int n)
+	{
+		if(n==0 || n==1) 
+			return 0;
+
+		if(n==2)
+			return 1;
+
+		return fibonacci(n-1)+fibonacci(n-2);
+	}
+
+}
+	
+
+
+Arrays program
+===============
+Q)Write a java program to find out least element from given array?
+
+input:
+	arr = 6 3 5 4 7 9 
+
+output:
+	Least element : 3
+
+approach1
+-----------
+import java.util.Arrays;
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={6,3,5,4,7,9};
+		
+		//sorting 
+		Arrays.sort(arr); // 3 4 5 6 7 9
+		
+		System.out.println("Least Element is ="+arr[0]);
+		
+	}
+}
+approach2
+------------
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={6,3,5,4,7,9};
+		
+		int small=arr[0];	
+		
+		for(int i=0;i<arr.length;i++)
+		{
+			if(arr[i]<small)
+			{
+				small=arr[i];
+			}
+		}
+		System.out.println("Least Element is ="+small);
+		
+	}
+}
+
+
+Q)Write a java program to find out highest element from given array?
+
+input:
+	arr = 6 3 5 4 7 9 
+
+output:
+	Highest element : 9
+
+ex:
+
+approach1
+--------
+import java.util.Arrays;
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={6,3,5,4,7,9};
+		
+		Arrays.sort(arr); //3 4 5 6 7 9
+		
+		System.out.println("Highest element ="+arr[arr.length-1]);
+		
+		
+	}
+}
+
+approach2
+----------
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={6,3,5,4,7,9};
+		
+		int big=arr[0];
+		
+		for(int i=0;i<arr.length;i++)
+		{
+			if(arr[i]>big)
+			{
+				big=arr[i];
+			}
+		}
+		System.out.println("Highest element is ="+big);
+	}
+}
+
+
+Q)Write a java program to display duplicates elements from given array?
+
+input:
+	4 5 6 2 5 6 7 9 1 
+
+output:
+	5 6
+
+ex:
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={4,5,6,2,5,6,7,9,1};
+		
+		for(int i=0;i<arr.length;i++)
+		{
+			for(int j=i+1;j<arr.length;j++)
+			{
+				if(arr[i]==arr[j])
+				{
+					System.out.print(arr[i]+" ");
+				}
+			}
+		}
+		
+	}
+}
+
+Q)Write a java program to display unique elements from given array?
+
+input:
+	4 5 6 2 5 6 7 9 1 
+
+output:
+	4  2  7  9  1
+
+ex:
+
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={4,5,6,2,5,6,7,9,1};
+		
+		for(int i=0;i<arr.length;i++)
+		{
+			int cnt=0;
+			for(int j=0;j<arr.length;j++)
+			{
+				if(arr[i]==arr[j])
+				{
+					cnt++;
+				}
+			}
+			if(cnt==1)
+				System.out.print(arr[i]+" ");
+		}
+		
+	}
+}
+
+Q)Write a java program to find out most repeating element in given array?
+
+input:
+	4 5 6 1 2 1 7 4 4 9 5 4 3
+
+output:
+	4 
+
+ex:
+----
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={4,5,6,1,4,2,1,7,4,4,9,5,4,3};
+		
+		int maxCount=0;
+		int ele = 0;
+		
+		for(int i=0;i<arr.length;i++)
+		{
+			int cnt=0;
+			for(int j=0;j<arr.length;j++)
+			{
+				if(arr[i]==arr[j])
+				{
+					cnt++;
+				}
+			}
+			if(maxCount<cnt) 
+			{
+				maxCount=cnt;
+				ele=arr[i];
+			}
+		}
+		System.out.println(ele+" repeat for "+maxCount+" times");
+	}
+}
+
+Q)Write a java program to segregate 0'1 and 1's in given array?
+
+Input:
+	0 1 1 0 0 0 1 1 0 1
+
+output:
+	0 0 0 0 0 1 1 1 1 1
+
+ex:
+----
+import java.util.Arrays;
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={0,1,1,0,0,0,1,1,0,1};
+		
+		Arrays.sort(arr);
+		
+		//display
+		for(int i:arr)
+		{
+			System.out.print(i+" ");
+		}
+	}
+}
+		
+Q)Write a java program to find out three highest elements?
+
+input:
+	4 6 1 2 3 9 8 5 7
+
+output:
+	9 8 7
+
+ex:
+import java.util.Arrays;
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={4,6,1,2,3,9,8,5,7};
+		
+		Arrays.sort(arr);// 1 2 3 4 5 6 7 8 9
+		
+		System.out.print(arr[arr.length-1]+" ");
+		System.out.print(arr[arr.length-2]+" ");
+		System.out.print(arr[arr.length-3]+" ");
+	}
+}
+
+Q)Write a java program to find out pair of array elements equals to sum value?
+
+input:
+	arr =  5 4 1 8 9 6 3 
+
+	sum = 10
+
+output:
+	4  6
+        1  9
+
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={5,4,1,8,9,6,3};
+		int sum=10;
+		
+		for(int i=0;i<arr.length;i++)
+		{
+			for(int j=i+1;j<arr.length;j++)
+			{
+				if(arr[i]+arr[j]==sum)
+				{
+					System.out.println(arr[i]+" "+arr[j]);
+				}
+			}
+		}
+	}
+}
+
+Q)write a java program to concatinate two arrays and display them in sorting order?
+
+input:
+	arr1 = 5 7 10 8 1
+	arr2 = 9 4 2  6 3 
+
+output:
+	1 2 3 4 5 6 7 8 9 10
+
+ex:
+
+import java.util.Arrays;
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[] arr1={5,7,10,8,1};
+		int[] arr2={9,4,2,6,3};
+		
+		int size1=arr1.length;
+		int size2=arr2.length;
+		
+		arr1=Arrays.copyOf(arr1, size1+size2);
+		
+		int j=0;
+		for(int i=size1;i<arr1.length;i++)
+		{
+			arr1[i]=arr2[j++];
+		}
+		//sorting
+		Arrays.sort(arr1);
+		
+		//display
+		for(int i:arr1)
+		{
+			System.out.print(i+" ");
+		}
+		
+	}
+}	
+
+Q)Write a java program to find out leader elements from given array?
+
+input:
+	arr =  33  10 29 18  7  2  14
+
+output:
+	
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={33,10,29,18,7,2,14};
+		
+		int max=arr[arr.length-1];
+		
+		System.out.print(max+" ");
+		
+		for(int i=arr.length-2;i>=0;i--)
+		{
+			if(arr[i]>max)
+			{
+				max=arr[i];
+				System.out.print(max+" ");
+			}
+		}
+	}
+}
+
+
+Q)Write a java program to delete array element from given index?
+
+input:
+	arr =  5 7 2 3 1 9 10
+
+	index : 5
+
+output:
+	5 7 2 3 1 10
+	
+ex:
+----
+import java.util.Arrays;
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={5,7,2,3,1,9,10};
+		int index=5;
+		
+		int[] resArr=Arrays.copyOf(arr,arr.length-1);
+		
+		int j=0;
+		for(int i=0;i<arr.length;i++)
+		{
+			if(i!=index)
+			{
+				resArr[j++]=arr[i];
+			}
+		}
+		//display
+		for(int i:resArr)
+		{
+			System.out.print(i+" ");
+		}
+	}
+}
+
+
+Q)Write a java program to delete first occurance of an array element from given element?
+
+input:
+	arr =  6 5 7 2 3 1 5 9 10 4 5 
+
+	element = 5;
+
+output:
+	6 7 2 3 1 5 9 10 4 5 
+
+ex:
+----
+import java.util.Arrays;
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={6,5,7,2,3,1,5,9,10,4,5};
+		
+		int element=5;
+		
+		int[] resArr=Arrays.copyOf(arr,arr.length-1);
+		
+		int j=0,cnt=0;
+		for(int i=0;i<arr.length;i++)
+		{
+			if((arr[i]==element) && cnt==0)
+			{
+				cnt++;
+				continue;
+			}
+			resArr[j++]=arr[i];
+			
+		}
+		
+		//display
+		for(int i:resArr)
+		{
+			System.out.print(i+" ");
+		}
+	}
+}
+
+Q)Write a java program to insert one element based on given location in a given array? 
+
+input:
+	arr =  5 3 7 4 9 1 6
+
+	loc =  3
+
+	element = 100
+
+output:
+	5 3 7 100 4 9 1 6
+
+ex:
+import java.util.Arrays;
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={5,3,7,4,9,1,6};
+		int loc =  3;
+		int element = 100;
+		
+		arr=Arrays.copyOf(arr,arr.length+1);
+	
+		for(int i=arr.length-1;i>=loc;i--)
+		{
+			arr[i]=arr[i-1];
+		}
+		
+		arr[loc]=element;
+		
+		for(int i:arr)
+		{
+			System.out.print(i+" ");
+		}
+	}
+}
+
+
+Q)Write a java program to accept two positive number and display prime numbers in between them?
+
+Input:
+	10    20
+
+output:
+	11  13  17  19
+
+ex:
+
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		int n1=10,n2=20;
+		int i,j;
+		
+		for(i=n1;i<=n2;i++)
+		{
+			for(j=2;j<i;j++)
+			{
+				if(i%j==0)
+				{
+					break;
+				}
+			}
+			if(i==j)
+				System.out.print(i+" ");
+		}
+	}
+}
+
+
+Q)Write a java program to find out missing element from given array?
+
+input:
+	arr = 3  5  1  4  
+
+output:
+	missing element = 2
+
+ex:
+
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={3,5,1,4};
+		
+		int sum_of_elements=arr.length+1;
+		
+		int sum=((sum_of_elements)*(sum_of_elements+1))/2;
+		
+		for(int i=0;i<arr.length;i++)
+		{
+			sum=sum-arr[i];
+		}
+		System.out.println("Missing element is ="+sum);
+	}
+}
+
+============================================
+Q)Write a java program to display reverse of a string?
+
+input:
+	hello
+
+output:
+	olleh 
+
+
+ex:
+
+import java.util.Scanner;
+class Test
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Enter the String :");
+		String str=sc.nextLine();// hello 
+
+		//convert given string to char array 
+		char[] carr=str.toCharArray();
+
+		String rev="";
+
+		for(int i=carr.length-1;i>=0;i--)
+		{
+			rev+=carr[i];
+		}
+
+		System.out.println("Reverse of a string is ="+rev);
+
+	}
+}
+
+
+Q)Write a java program to find out given string is palindrome or not?
+
+input:
+	madam
+
+output:
+	It is a palindrome string
+
+
+ex:
+---
+import java.util.Scanner;
+class Test
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Enter the String :");
+		String str=sc.nextLine();// hello 
+
+		//convert given string to char array 
+		char[] carr=str.toCharArray();
+
+		String rev="";
+
+		for(int i=carr.length-1;i>=0;i--)
+		{
+			rev+=carr[i];
+		}
+
+		if(str.equals(rev))
+			System.out.println("It is a palindrome String");
+		else
+			System.out.println("It is not a palindrome string");
+	}
+}
+
+Q)Write a java program to display reverse of a sentence?
+
+input:
+	This Is Java Class
+	
+output:
+	Class Java Is This
+
+ex:
+---
+import java.util.Scanner;
+class Test
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Enter the String :");
+		String str=sc.nextLine();// This Is Java Class
+
+		//split the string
+		String[] sarr=str.split(" ");
+
+		//reading reverse
+		for(int i=sarr.length-1;i>=0;i--)
+		{
+			System.out.print(sarr[i]+" ");
+		}
+
+		
+	}
+}
+
+Q)Write a java program to display reverse of a word in a given string?
+
+input:
+	This Is Java Class
+
+output:
+
+	sihT sI avaJ ssalC 
+
+ex:
+-----
+import java.util.Scanner;
+class Test
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Enter the String :");
+		String str=sc.nextLine();// This Is Java Class
+
+		//split the string
+		String[] sarr=str.split(" "); //This     Is       Java     Class
+
+		//reading the string from string array
+		for(String s:sarr) //This
+		{
+			//convert string to char array
+			char[] carr=s.toCharArray();//T  h   i   s
+				
+			//read reverse
+			for(int i=carr.length-1;i>=0;i--)
+			{
+				System.out.print(carr[i]);
+			}
+			//space
+			System.out.print(" ");
+		}
+	}
+}
+
+Q)Write a java program to display duplicate characters from given string?
+
+input:
+	google 
+
+output:
+	og 
+
+ex:
+
+class Test
+{
+	public static void main(String[] args) 
+	{
+		String str="google";
+
+		String characters="";
+		String duplicates="";
+
+		for(int i=0;i<str.length();i++)
+		{
+			//reading the character from given string
+			//convert the character to String
+			String current=Character.toString(str.charAt(i));  
+
+			if(characters.contains(current))
+			{
+				if(!(duplicates.contains(current)))
+				{
+					duplicates+=current;
+					continue;
+				}
+			}
+			characters+=current;
+		}
+
+		System.out.println(duplicates);
+	} 
+}
+
+
+Q)Write a java program to display unique/distinct characters from given string?
+
+input:
+	google 
+
+output:
+	gole
+
+
+class Test
+{
+	public static void main(String[] args) 
+	{
+		String str="google";
+
+		String characters="";
+		String duplicates="";
+
+		for(int i=0;i<str.length();i++)
+		{
+			//reading the character from given string
+			//convert the character to String
+			String current=Character.toString(str.charAt(i));  
+
+			if(characters.contains(current))
+			{
+				if(!(duplicates.contains(current)))
+				{
+					duplicates+=current;
+					continue;
+				}
+			}
+			characters+=current;
+		}
+
+		System.out.println(characters);
+	}
+}
+
+Q)Write a java program to check given strings is Anagram or not?
+
+input:
+	String str1="silent";
+	String str2="listen";
+
+output:
+	It is a Anagram string 
+
+ex:
+----
+import java.util.Arrays;
+class Test
+{
+	public static void main(String[] args) 
+	{
+		String str1="silent";  // e i l n s t  
+		String str2="listen";  // e i l n s t	
+
+		int len1=str1.length();
+		int len2=str2.length();
+
+		if(len1!=len2)
+		{
+			System.out.println("It is not a Anagram string");
+			System.exit(0);
+		}
+
+		//converting string to char array
+		char[] carr1=str1.toCharArray();
+		char[] carr2=str2.toCharArray();
+
+		//sorting order
+		Arrays.sort(carr1);
+		Arrays.sort(carr2);
+
+		//compare the characters
+		for(int i=0;i<carr1.length;i++)
+		{
+			if(carr1[i]!=carr2[i])
+			{
+				System.out.println("It is not a Anagram string");
+				System.exit(0);
+			}
+		}
+
+		System.out.println("It is a Anagram string");
+	}	
+}
+
+
+Q)Java program for below code?
+
+input:
+	A1B2C3
+
+output:
+	AABBCCC
+
+package com.ihub.www;
+
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the string :");
+		String str = sc.nextLine();
+		for (int i = 0; i<str.length(); i++)
+		{
+			if (Character.isAlphabetic(str.charAt(i)))
+			{
+				System.out.print(str.charAt(i));
+			}else{
+				int a = Character.getNumericValue(str.charAt(i));
+				for (int j =1; j<a; j++)
+				{
+					System.out.print(str.charAt(i-1));
+				}
+			}
+
+		}
+	}
+}
+
+
+Q) Write a java program to find out duplicate occurrence in a given String?
+
+Example
+Input:
+	I am am Learning java java
+Output:
+	I=1 , am=2, Learning=1, java=2
+
+
+import java.util.*;
+class Test
+{
+public static void main(String[] args)
+{
+	findDuplicatesWords("I am am Learning java java");
+}
+public static void findDuplicatesWords(String str)
+{
+	LinkedHashMap<String,Integer> lhm=new LinkedHashMap<String,Integer>();
+
+	String[] s=str.split(" ");
+	
+	for(String tempString: s)
+	{
+		if(lhm.get(tempString)!=null)
+		{
+			lhm.put(tempString,lhm.get(tempString)+1);
+		}
+		else
+		{
+			lhm.put(tempString,1);
+		}
+	}
+	System.out.println(lhm);
+	}
+}
+
+
+
+
+
+
+
+
+
+Q) Write a java program to find out number of characters occurrence in String?
+
+Example
+Input:
+	java
+Output:
+	j=1, a=2, v=1
+
+
+
+import java.util.*;
+class Test
+{
+	public static void main(String[] args)
+	{
+		findDuplicatesCharacters("java");
+	}
+
+	public static void findDuplicatesCharacters(String str)
+	{
+	LinkedHashMap<Character,Integer> lhm=new LinkedHashMap<Character,Integer>();
+	for(int i=0;i<str.length();i++)
+	{
+
+		char c=str.charAt(i);
+		if(lhm.get(c)!=null)
+		{
+			lhm.put(c,lhm.get(c)+1);
+		}
+		else
+		{
+			lhm.put(c,1);
+		}
+	}
+	System.out.println(lhm);
+	}
+}
+
+
+
+
+
+
+CODETRU programs
+===============
+Q)Write a java program for below code?
+
+input:
+	abc
+
+output:
+	6
+
+package com.ihub.www;
+
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Enter the word :");
+		String word = sc.nextLine();
+		
+		char[] carr=word.toCharArray();
+		
+		int sum=0;
+		for(char ch:carr)
+		{
+			sum=sum+1+ch-'a';
+		}
+		System.out.println(sum);
+	}
+}	
+
+
+Q)Write a java program to find out differences between two arrays using max and min and display result element is even or odd?
+
+package com.ihub.www;
+
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args)
+	{
+		int[] arr1={3,5,7,7,4,8};
+		int[] arr2={3,5,7,7,0,8};
+		
+		int max1=arr1[0];
+		int min1=arr1[0];
+		for(int i=0;i<arr1.length;i++)
+		{
+			if(arr1[i]>max1)
+				max1=arr1[i];
+			else if(arr1[i]<min1)
+				min1=arr1[i];		
+		}
+		System.out.println("Difference of max and min is ="+(max1-min1));
+		
+		int max2=arr2[0];
+		int min2=arr2[0];
+		for(int i=0;i<arr2.length;i++)
+		{
+			if(arr2[i]>max2)
+				max2=arr2[i];
+			else if(arr2[i]<min2)
+				min2=arr2[i];		
+		}
+		System.out.println("Difference of max and min is ="+(max2-min2));
+		
+		if(((max1-min1)%2==0) && ((max2-min2)%2==0))
+			System.out.println("It is even number");
+		else
+			System.out.println("It is odd number");
+		
+	}
+}
+
+
+Q)Write a java program to display longest run of a character and occurance in a given string?
+
+package com.ihub.www;
+
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args)
+	{
+		String s="abbc";
+		
+		char[] array = s.toCharArray();
+				int count = 1;
+				int max = 0;
+				char maxChar = 0;
+				for(int i=1; i<array.length; i++){ // Start from 1 since we want to compare it with the char in index 0
+				    if(array[i]==array[i-1]){
+				        count++;
+				    } else {
+				        if(count>max){  // Record current run length, is it the maximum?
+				            max=count;
+				            maxChar=array[i-1];
+				        }
+				        count = 1; // Reset the count
+				    }
+				}
+				if(count>max){
+				    max=count; // This is to account for the last run
+				}
+				System.out.println("Longest run: "+max+", for the character "+maxChar);
+		
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
